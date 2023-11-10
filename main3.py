@@ -525,7 +525,7 @@ def main():
         screen.blit(ROCKET, (10, 80))
         screen.blit(rocket_label, (60, 80))
 
-        if level == 1:
+        if level == 5:
             boss.move()        
             boss.draw(screen)  
             boss.shoot()
@@ -537,12 +537,9 @@ def main():
                 screen.blit(win_label, (WIDTH/2 - win_label.get_width()/2, 400))
                 boss.y = -1000
                 boss.lasers = []
-                start_time = time.time()
-            Time = time.time() - start_time
-            if Time > 3:
-                    end_menu()
+                end_menu()
         
-        if level < 1:
+        if level < 5:
             player.move_lasers(-laser_vel_player, enemies)    
             player.shoot_rocket(-laser_vel_player, enemies)   
 
@@ -584,7 +581,7 @@ def main():
                 enemy = Chicken(random.randrange(60, WIDTH-100), random.randrange(-1500, -100), random.choice(["blue", "white", "brown", "police", "fly"]))
                 enemies.append(enemy) 
 
-        if level == 1:
+        if level == 5:
             bg1.speed = 0     
             enemy_vel = 0           
         
